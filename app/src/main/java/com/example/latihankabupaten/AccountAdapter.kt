@@ -2,6 +2,7 @@ package com.example.latihankabupaten
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
@@ -45,20 +46,30 @@ class AccountAdapter(val context: Context, val accountList: MutableList<AccountM
                 holder.foto.setImageBitmap(gambar)
                 holder.nama.text = account.first_name + " " + account.last_name
                 holder.email.text = account.email
+
             }
 
         }
-
-
-
-
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val account = accountList[position] //memposisi data sesuai urutan atau index
         updateUI(holder, account) //untuk mengupdate ui sesuai data yand didapat
+
+
+        holder.itemView.setOnClickListener{
+            itemClick(account.id)
+        }
     }
+
+    private fun itemClick(id: String) {
+
+        val intent = Intent(context, DetailActivity::class.java)
+        intent.putExtra("id", id)
+        (context as Activity).startActivity(intent)
+
+    }
+
 
 
 }

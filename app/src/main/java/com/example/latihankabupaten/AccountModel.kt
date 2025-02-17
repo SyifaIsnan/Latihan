@@ -1,5 +1,8 @@
 package com.example.latihankabupaten
 
+
+val EXTRA_ACCOUNT_ID = "accountExtra"
+
 data class AccountModel( //buat nyimpen data akun (harus sama kaya respon dari web)
 
     val id: String,

@@ -32,7 +32,7 @@ class home : AppCompatActivity() {
             insets
         }
 
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding = ActivityHomeBinding.inflate(layoutInflater)   // kode ini untuk menghubungkan kode dengan desain tampilan dari file activity_home.xml.
         setContentView(binding.root)
 
         val accountList = mutableListOf<AccountModel>() //
@@ -66,6 +66,7 @@ class home : AppCompatActivity() {
                     binding.RecyclerView.adapter = AccountAdapter(this@home, accountList) //untuk merubah data dari kkotlin ke xml
 
                 }
+
             } catch (e: Exception){
                 withContext(Dispatchers.Main){
                     Toast.makeText(this@home, "Gagal!", Toast.LENGTH_SHORT).show()  //this@home itu buat tampilan yang saat ini
